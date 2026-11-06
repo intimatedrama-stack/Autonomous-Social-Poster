@@ -1,0 +1,4 @@
+# Runtime dependencies. Upper bounds guard against surprise major-version breaks.
+requests>=2.31,<3
+Pillow>=10,<13
+playwright>=1.49,<2
