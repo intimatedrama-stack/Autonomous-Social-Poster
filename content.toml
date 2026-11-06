@@ -1,0 +1,119 @@
+# Persona photo poster.
+# Drop original photos you have rights to use into:
+#   media/personas/<id>/photos/
+# After a successful post they move to:
+#   media/personas/<id>/used/
+# Restart main.py after edits.
+
+[poster]
+mode = "photos"          # photos | generate
+pick = "oldest"          # oldest (queue) | random
+
+[[personas]]
+id = "bratty-drain"
+display_name = "Bratty Drain"
+enabled = true
+photos_dir = "media/personas/bratty-drain/photos"
+used_dir = "media/personas/bratty-drain/used"
+reddit_profile = "reddit_main"
+twitter_profile = "twitter_main"
+# Public shop window. Paid chat/calls happen off the feed.
+subreddits = ["selfies"]
+voice = """
+You write captions as an 18+ adult woman posting her own photo.
+First person only (I, me, my). Never third person.
+Tone: confident, a little bratty, warm, never desperate or salesy.
+Tease. Do not describe the photo like a catalog (no clothing/body inventory).
+Do not mention cameras, iPhones, or how the photo was taken.
+Sound like a real person, not a promo bot.
+Invite curiosity and conversation, not a hard sell.
+0-2 hashtags max. Under 220 characters.
+"""
+fallback_captions = [
+  "slow night. come talk to me.",
+  "not posting the rest of this here.",
+  "in my feelings a little. stay?",
+  "this is the polite version.",
+]
+
+[schedule]
+# Slower = more human, better for quality clients.
+sleep_min_seconds = 14400
+sleep_max_seconds = 28800
+
+# --- generate mode only (ignored when poster.mode = "photos") ---
+[subject]
+description = "beautiful woman, 24 years old, pretty face, attractive"
+hair = "long dark hair"
+eyes = "brown eyes"
+body = "slim waist, fit body, natural breasts, feminine figure"
+details = ""
+
+[look]
+quality = "photorealistic, realistic skin, attractive"
+framing = "full body, medium shot"
+photography = "amateur iphone selfie, natural lighting, candid"
+
+[generation]
+graphic_level = "suggestive/explicit/nsfw"
+images_always_explicit = true
+require_nude = true
+negative_prompt = "ugly, unattractive, old, extra fingers, bad anatomy, deformed, mutated, cartoon, illustration, painting, 3d render, cgi, airbrushed, plastic skin, clothes, shirt, dress, bra, pants, child, loli, teen, underage, text, watermark, blurry, low quality"
+
+[image]
+width = 512
+height = 768
+steps = 22
+cfg_scale = 6.5
+sampler = "Euler a"
+clip_skip = 2
+
+[reddit]
+subreddits = ["selfies"]
+
+[variety]
+poses = [
+  "lying on her side on an unmade bed",
+  "sitting cross-legged facing the camera",
+  "standing near a window looking over her shoulder",
+  "kneeling on the bed, arched back",
+  "reclining against pillows, one knee up",
+  "leaning on a bathroom counter",
+]
+outfits = [
+  "completely nude",
+  "wearing only an oversized t-shirt slipping off one shoulder",
+  "sheer black lingerie set",
+  "towel loosely wrapped after a shower",
+  "unbuttoned shirt with nothing underneath",
+]
+settings = [
+  "messy bedroom",
+  "dimly lit bathroom",
+  "hotel room with city lights",
+  "living room couch at night",
+  "closet mirror corner",
+]
+lighting = [
+  "warm lamp light",
+  "soft window daylight",
+  "harsh flash selfie",
+  "neon accent light",
+  "candlelit warm glow",
+]
+camera = [
+  "mirror selfie, full body in frame",
+  "arm-length front camera selfie",
+  "slightly elevated phone angle",
+  "low angle looking up",
+  "tight upper-body crop",
+]
+
+[[styles]]
+id = "bedroom-nude"
+name = "Bedroom"
+enabled = true
+topic = "in the bedroom"
+clothing = ""
+setting = ""
+extra_sd_tags = ""
